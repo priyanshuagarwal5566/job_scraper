@@ -31,7 +31,8 @@ SECRET_KEY = 'django-insecure-d5u6@ohs31(-dn&1l89qh+=9df1#j18@_feb2nih&#jfpvbb*t
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "localhost").split(",")
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "localhost,127.0.0.1,job-scraper-fdw0.onrender.com").split(",")
+
 
 
 # Application definition
@@ -145,7 +146,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
-SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "0zTfXRHSoWOjp_0SZ7Z-peda2skd695baoBjYoqlSryUkhlfMXKt_LjTHO_53GS3K0M")
+
 DEBUG = os.getenv("DJANGO_DEBUG", "False") == "True"
 
 
