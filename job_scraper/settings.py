@@ -26,12 +26,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-d5u6@ohs31(-dn&1l89qh+=9df1#j18@_feb2nih&#jfpvbb*t'
+SECRET_KEY = os.getenv("SECRET_KEY", "Xj176mk6mG5MTYEcNnF_sGdGgcqfTwJCCBM8Syw7bnBqAgXouFx24ZhRx5sgCjzrqsI")
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "localhost,127.0.0.1,job-scraper-fdw0.onrender.com").split(",")
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "localhost").split(",")
 
 
 
@@ -93,6 +94,8 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 
